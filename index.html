@@ -517,11 +517,11 @@
         <div class="balance-container">
             <div class="balance-item">
                 <span>AIA</span>
-                <p>0.00</p>
+                <p>k100</p>
             </div>
             <div class="balance-item">
                 <span>USDT</span>
-                <p>0.00</p>
+                <p id="usdtBalance">100.00</p>
             </div>
             <button onclick="window.location.href='withdraw.html'" class="withdraw-button">سحب أموال</button>
         </div>
@@ -751,7 +751,7 @@
         function confirmSell() {
             const amount = document.getElementById('sell-amount').value;
             if (amount > 0) {
-                alert("لا يوجد عملات لبيع!");
+                alert("البيع يوم 25!");
                 closeSellDialog();
             } else {
                 alert("يرجى إدخال كمية صحيحة!");
@@ -893,10 +893,23 @@
             }
         }
 
+        // دالة لتحديث قيمة USDT بشكل عشوائي كل دقيقة
+        function updateUSDTBalance() {
+            const usdtBalanceElement = document.getElementById('usdtBalance');
+            const min = 100;
+            const max = 105;
+            const randomValue = (Math.random() * (max - min) + min).toFixed(2);
+            usdtBalanceElement.textContent = randomValue;
+        }
+
+        // تحديث قيمة USDT كل دقيقة
+        setInterval(updateUSDTBalance, 60000);
+
         // استدعاء الوظيفة عند تحميل الصفحة
         window.onload = () => {
             checkAuth();
             changeLanguage('ar'); // تعيين اللغة الافتراضية إلى العربية
+            updateUSDTBalance(); // تحديث قيمة USDT عند التحميل
         };
     </script>
 </body>
