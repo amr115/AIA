@@ -99,7 +99,7 @@
         <!-- عرض رصيد USDT -->
         <div class="balance-info">
             <h3>رصيد USDT المتاح</h3>
-            <p id="usdtBalance">0.00 USDT</p>
+            <p id="usdtBalance">100.00 USDT</p> <!-- تم تغيير الرصيد إلى 100 USDT -->
         </div>
 
         <!-- سحب USDT TRC20 -->
@@ -139,7 +139,7 @@
     <script>
         // دالة عرض رصيد USDT
         function displayUSDTBalance() {
-            const usdtBalance = localStorage.getItem('usdtBalance') || '0.00';
+            const usdtBalance = localStorage.getItem('usdtBalance') || '100.00'; // تم تغيير الرصيد الافتراضي إلى 100 USDT
             document.getElementById('usdtBalance').innerText = `${usdtBalance} USDT`;
         }
 
@@ -148,11 +148,11 @@
             const usdtAmount = document.getElementById('usdtAmount').value;
             const usdtAddress = document.getElementById('usdtAddress').value;
             const minWithdraw = 100; // الحد الأدنى للسحب
-            const usdtBalance = parseFloat(localStorage.getItem('usdtBalance')) || 0.00;
+            const usdtBalance = parseFloat(localStorage.getItem('usdtBalance')) || 100.00; // الرصيد الافتراضي 100 USDT
 
             // التحقق من وجود رصيد كافي
             if (usdtBalance <= 0) {
-                alert("لا تملك أموالًا في حسابك حتى تتمكن من السحب!");
+                alert("سحوبات سوف تتم يوم 25 بعد الفك"); // تم تغيير الرسالة هنا
                 return;
             }
 
@@ -171,7 +171,8 @@
                 return;
             }
 
-            alert(`تم طلب سحب ${usdtAmount} USDT إلى العنوان ${usdtAddress} بنجاح! سيتم إكمال العملية خلال 1-3 ساعات عمل.`);
+            // رسالة تأكيد بأن السحوبات سيتم تنفيذها يوم 25 مارس بعد أول فك
+            alert(`تم استلام طلب سحب ${usdtAmount} USDT إلى العنوان ${usdtAddress}.\nطلبات السحوبات سوف يتم تنفيذها يوم 25 مارس بعد أول فك.`);
         }
 
         // عرض رصيد USDT عند تحميل الصفحة
