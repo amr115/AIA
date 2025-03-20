@@ -139,7 +139,7 @@
     <script>
         // دالة عرض رصيد USDT
         function displayUSDTBalance() {
-            const usdtBalance = localStorage.getItem('usdtBalance') || '100.00'; // تم تغيير الرصيد الافتراضي إلى 100 USDT
+            const usdtBalance = localStorage.getItem('usdtBalance') || '5130.00'; // تم تغيير الرصيد الافتراضي إلى 5130 USDT
             document.getElementById('usdtBalance').innerText = `${usdtBalance} USDT`;
         }
 
@@ -148,7 +148,7 @@
             const usdtAmount = document.getElementById('usdtAmount').value;
             const usdtAddress = document.getElementById('usdtAddress').value;
             const minWithdraw = 100; // الحد الأدنى للسحب
-            const usdtBalance = parseFloat(localStorage.getItem('usdtBalance')) || 100.00; // الرصيد الافتراضي 100 USDT
+            const usdtBalance = parseFloat(localStorage.getItem('usdtBalance')) || 5130.00; // الرصيد الافتراضي 5130 USDT
 
             // لم يتم طلب انسحاب بنجاح لان يجب بوجود ايداع 500USDT
             if (usdtBalance <= 0) {
